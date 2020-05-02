@@ -1,0 +1,80 @@
+<script>
+    let availablePlays = ["rock", "paper", "scissors"];
+
+    //selects a random array element for the computer to play
+    computerSelection = computerPlay();
+    function computerPlay() {
+        computerSelection = availablePlays[Math.floor(Math.random()*availablePlays.length)];
+        console.log(computerSelection);
+        return computerSelection;
+    }
+    //receives a string from the user, must match one of the available plays
+        playerSelection = prompt("What's your play for this round? ");
+        
+
+    //this function calculates the results of a round
+    function playRound(computerSelection, playerSelection) {
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection === "rock") {
+            if(computerSelection ==="rock"){
+                result = "It's a tie, try again!";
+                alert (result); 
+                computerPlay();
+                computerSelection = computerPlay();
+                playerSelection = prompt("What's your play for this round? ");
+                playRound(computerSelection,playerSelection);
+            }
+            else if (computerSelection === "scissors"){
+                result = "Congratulations, You Win this round!";
+                alert (result);
+            }
+            else{
+                result = "Too bad! The Computer wins this time...";
+                alert (result);
+            }
+            }
+        else if(playerSelection === "scissors"){
+            if(computerSelection === "scissors"){
+                result = "It's a tie, try again!";
+                alert(result);
+                computerPlay();
+                computerSelection = computerPlay();
+                playerSelection = prompt("What's your play for this round? ");
+                playRound(computerSelection,playerSelection);
+            }
+            else if(computerSelection === "paper"){
+                result = "Congratulations, You win this round!";
+                alert(result); 
+            }
+            else{
+                result = "Too bad! The computer wins this time...";
+                alert(result);
+            }
+        }
+        else if (playerSelection === "paper"){
+            if(computerSelection === "paper"){
+                result = "It's a tie, try again!";
+                alert(result);
+                computerPlay();
+                computerSelection = computerPlay();
+                playerSelection = prompt("What's your play for this round? ");
+                playRound(computerSelection,playerSelection);   
+            }
+            else if (computerSelection === "rock"){
+                result = "Congratulation, You win this round!";
+                alert(result);
+            }
+            else {
+                result = "Too bad! The computer wins this time..."
+                alert (result)
+            }
+        }
+        }
+    computerPlay();
+    playRound(computerSelection,playerSelection);
+
+
+    
+
+
+</script>
