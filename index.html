@@ -1,109 +1,39 @@
-<script>
-    let availablePlays = ["rock", "paper", "scissors"];
+<!DOCTYPE html>
+<html lang="en">
+<main>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script defer src="gamelogic.js">  </script>
+    </head>
+    <body>
+        <h1 id="h1Display">
+             WELCOME TO THE ULTIMATE ROCK,PAPER & SCISSORS SHOWDOWN!!
+        </h1>
+        <div id="gameicons">
+            <button class="btn" id="rock"><image src="images/rock1.png" alt="rock"></image></button>
+            <button  class="btn" id="paper"><image src="images/paper.png" alt="paper"></image></button>
+            <button  class="btn" id="scissors"><image src="images/scissors2.png" alt="scissors"></image></button>
+        </div>
+        <div id="message">
+        </div>
+        <br>
+        <div id="scoreboard"> 
 
-    //selects a random array element for the computer to play
-    function computerPlay() {
-        computerSelection = availablePlays[Math.floor(Math.random()*availablePlays.length)];
-        console.log(computerSelection);
-        return computerSelection;
-    }
+        </div>
+    </body>
 
-    //this function calculates the results of a round
-    function playRound(computerSelection, playerSelection) {
-        playerSelection = playerSelection.toLowerCase();
-        if (playerSelection === "rock") {
-            if(computerSelection ==="rock"){
-                result = "It's a tie, try again!";
-                alert (result); 
-                computerPlay();
-                computerSelection = computerPlay();
-                playerSelection = prompt("What's your play for this round? ");
-                playRound(computerSelection,playerSelection);
-            }
-            else if (computerSelection === "scissors"){
-                playerScore++;
-                result = "Congratulations, You Win this round!";
-                alert (result);
-                return result
-            }
-            else{
-                computerScore++
-                result = "Too bad! The Computer wins this time...";
-                alert (result);
-                return result
-            }
-            }
-        else if(playerSelection === "scissors"){
-            if(computerSelection === "scissors"){
-                result = "It's a tie, try again!";
-                alert(result);
-                computerPlay();
-                computerSelection = computerPlay();
-                playerSelection = prompt("What's your play for this round? ");
-                playRound(computerSelection,playerSelection);
-            }
-            else if(computerSelection === "paper"){
-                playerScore++;
-                result = "Congratulations, You win this round!";
-                alert(result); 
-                return result
-            }
-            else{
-                computerScore++;
-                result = "Too bad! The computer wins this time...";
-                alert(result);
-                return result
-            }
-        }
-        else if (playerSelection === "paper"){
-            if(computerSelection === "paper"){
-                result = "It's a tie, try again!";
-                alert(result);
-                computerPlay();
-                computerSelection = computerPlay();
-                playerSelection = prompt("What's your play for this round? ");
-                playRound(computerSelection,playerSelection);   
-            }
-            else if (computerSelection === "rock"){
-                playerScore++;
-                result = "Congratulation, You win this round!";
-                alert(result);
-            }
-            else {
-                computerScore++;
-                result = "Too bad! The computer wins this time...";
-                alert (result);
-            }
-        }
-        else {
-            alert ("invalid value, you must choose between rock, paper or scissors...");
-            computerPlay();
-            computerSelection = computerPlay();
-            playerSelection = prompt("What's your play for this round? ");
-            playRound(computerSelection,playerSelection);
-        }
-        }
-     
-    function game(){
-        let computerSelection = computerPlay();
-        computerPlay();
-        //receives a string from the user, must match one of the available plays
-        let playerSelection = prompt("What's your play for this round? ");
-        playRound(computerSelection,playerSelection);
-         }
+    <footer>
+        <a href="https://github.com/JvPelai" target ="_blank">
+            <image src="images/github-logo.png" id="GitHub"> <br>GitHub </image>
+        </a>
+        <a href="https://twitter.com/JvPelai" target="_blank">
+        <image src="images/twitter.png" id="twitter"><br>twitter</image> 
+        </a>
+        <a href="https://www.facebook.com/joaovictor.pelai.3" target="_blank">
+            <image src="images/facebook.png" id="facebook"><br>facebook</image>
+        </a>
+    </footer>
 
-    var computerScore = 0;
-    var playerScore = 0;
- 
-    for (let i = 1; i < 6; i++){
-        game();
-    }
-    if(computerScore > playerScore){
-        console.log("  The computer wins!\n   Computer " + computerScore + " VS " + playerScore + " You");
-        alert("   The computer wins!\n   Computer " + computerScore + " VS " + playerScore + " You");
-    }
-    else{
-        console.log("  You Win!\n You" + playerScore + " VS " + computerScore + "Computer")
-    }
-
-</script>
+</main>
